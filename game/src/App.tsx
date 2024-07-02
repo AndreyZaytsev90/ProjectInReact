@@ -3,6 +3,8 @@ import {Settings} from "./components/Settings/Settings";
 import {Button} from "./components/Button/Button";
 import {ResultPanel} from "./components/ResultPanel/ResultPanel";
 import {Grid} from "./components/Grid/Grid";
+import {Win} from "./components/Win/Win";
+import {Lose} from "./components/Lose/Lose";
 
 export const GAME_STATUSES = {
     SETTINGS: 'settings',
@@ -49,28 +51,33 @@ function App() {
     return (
         <>
             <div className="card">
-                {initialState.game_state === GAME_STATUSES.SETTINGS
-                    ? <div>
-                        <Settings/>
-                        <br/>
-                        <Button name="Start game" callback={() => {
-                        }}/>
-                    </div>
-                    : ''
-                }
-                {initialState.game_state === GAME_STATUSES.IN_PROGRESS
-                    ? <div>
-                        <Settings/>
-                        <br/>
-                        <ResultPanel/>
-                        <br/>
-                        <Grid/>
-                    </div>
-                    : ''
-                }
+                {initialState.game_state === GAME_STATUSES.SETTINGS && (
+                    <>
+                        <Settings />
+                        <br />
+                        <Button name="Start game" callback={() => {}} />
+                    </>
+                )}
+                {initialState.game_state === GAME_STATUSES.IN_PROGRESS && (
+                    <>
+                        <Settings />
+                        <br />
+                        <ResultPanel />
+                        <br />
+                        <Grid />
+                    </>
+                )}
+                {(initialState.game_state === GAME_STATUSES.WIN || initialState.game_state === GAME_STATUSES.LOSE) && (
+                    <>
+                        {initialState.game_state === GAME_STATUSES.WIN ? <Win /> : <Lose />}
+                        <br />
+                        <Button name="Play again" callback={() => {}} />
+                        <br />
+                    </>
+                )}
             </div>
         </>
-    )
+    );
 }
 
 export default App

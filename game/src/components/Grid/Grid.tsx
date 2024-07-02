@@ -1,6 +1,7 @@
 import {initialState} from "../../App";
 import {Cell} from "./Cell/Cell";
 import styles from './Grid.module.css';
+import { v4 as uuid } from 'uuid';
 
 export const Grid = () => {
 
@@ -12,10 +13,10 @@ export const Grid = () => {
 
     return (
         <div className={styles.grid}>
-            {rows.map((i) => (
-                <div key={i} className={styles.gridRow}>
-                    {cols.map((j) => {
-                        return <Cell key={j}/>;
+            {rows.map(() => (
+                <div key={uuid()} className={styles.gridRow}>
+                    {cols.map(() => {
+                        return <Cell key={uuid()}/>;
                     })}
                 </div>
             ))}
