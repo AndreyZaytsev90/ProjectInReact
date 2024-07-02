@@ -2,6 +2,7 @@ import './App.css'
 import {Settings} from "./components/Settings/Settings";
 import {Button} from "./components/Button/Button";
 import {ResultPanel} from "./components/ResultPanel/ResultPanel";
+import {Grid} from "./components/Grid/Grid";
 
 export const GAME_STATUSES = {
     SETTINGS: 'settings',
@@ -45,7 +46,6 @@ export const initialState = {
 
 function App() {
 
-    // @ts-ignore
     return (
         <>
             <div className="card">
@@ -63,6 +63,8 @@ function App() {
                         <Settings/>
                         <br/>
                         <ResultPanel/>
+                        <br/>
+                        <Grid/>
                     </div>
                     : ''
                 }
