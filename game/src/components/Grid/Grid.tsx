@@ -13,10 +13,10 @@ export const Grid = () => {
 
     return (
         <div className={styles.grid}>
-            {rows.map(() => (
+            {rows.map((y) => (
                 <div key={uuid()} className={styles.gridRow}>
-                    {cols.map(() => {
-                        return <Cell key={uuid()}/>;
+                    {cols.map((x) => {
+                        return <Cell x={x} y={y} key={uuid()}/>;
                     })}
                 </div>
             ))}
