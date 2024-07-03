@@ -20,7 +20,7 @@ export const MOVING_DIRECTIONS = {
     RIGHT: 'right'
 }
 export const initialState = {
-    game_state: GAME_STATUSES.SETTINGS,
+    game_state: GAME_STATUSES.IN_PROGRESS,
     settings: {
         gridSize: {
             rowsCount: 6,
@@ -35,4 +35,32 @@ export const initialState = {
         players: [{x: 2, y: 2}, {x: 3, y: 3}]
     },
     points: {google: 0, players: [0, 0]}
+}
+
+
+export function _getPlayerIndexByNumber(playerNumber: number) {
+    const playerIndex = playerNumber - 1
+
+    if (playerIndex < 0 || playerIndex > initialState.points.players.length - 1) {
+        throw new Error("Incorrect player number")
+    }
+
+    return playerIndex;
+}
+
+export function getGooglePosition() {
+    return {...initialState.positions.google}
+}
+
+export function getPlayerPosition(playerNumber: number) {
+    const playerIndex = _getPlayerIndexByNumber(playerNumber);
+    return {...initialState.positions.players[playerIndex]}
+}
+
+export function getPlayersPoints(playerNumber: number) {
+    const playerIndex = _getPlayerIndexByNumber(playerNumber);
+    return initialState.points.players[playerIndex]
+}
+export function getGooglePoints() {
+    return initialState.points.google
 }

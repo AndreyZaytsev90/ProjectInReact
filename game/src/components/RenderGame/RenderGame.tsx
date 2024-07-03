@@ -1,11 +1,10 @@
-
 import {Settings} from "../Settings/Settings";
-import {Button} from "../Button/Button";
 import {ResultPanel} from "../ResultPanel/ResultPanel";
 import {Grid} from "../Grid/Grid";
 import {Win} from "../Win/Win";
 import {Lose} from "../Lose/Lose";
 import {GAME_STATUSES, initialState} from "../../state/State";
+import {StartGame} from "../StartGame/StartGame";
 
 export const RenderGame = () => {
     switch (initialState.game_state) {
@@ -14,8 +13,7 @@ export const RenderGame = () => {
                 <>
                     <Settings/>
                     <br/>
-                    <Button name="Start game" callback={() => {
-                    }}/>
+                    <StartGame/>
                 </>
             )
         case GAME_STATUSES.IN_PROGRESS:
