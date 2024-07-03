@@ -1,7 +1,7 @@
-import {initialState} from "../../App";
 import {Cell} from "./Cell/Cell";
 import styles from './Grid.module.css';
 import {v4 as uuid} from 'uuid';
+import {initialState} from "../../state/State";
 
 export const Grid = () => {
     function getGridSize() {

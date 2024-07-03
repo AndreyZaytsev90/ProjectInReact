@@ -1,4 +1,5 @@
-import {initialState} from "../../App";
+import {initialState} from "../../state/State";
+
 
 export const ResultPanel = () => {
     function _getPlayerIndexByNumber(playerNumber: number) {

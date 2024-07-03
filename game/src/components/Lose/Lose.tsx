@@ -1,7 +1,13 @@
+import {Button} from "../Button/Button";
+
 export const Lose = () => {
     return (
-        <>
-        lose component will be here
-        </>
+        <div>
+            lose component will be here
+            <div>
+                <Button name="Play again" callback={() => {
+                }}/>
+            </div>
+        </div>
     );
 };

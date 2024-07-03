@@ -1,7 +1,7 @@
 import styles from '../Grid.module.css';
-import {initialState} from "../../../App";
 import {Google} from "../../common/Google/Google";
 import {Player} from "../../common/Player/Player";
+import {initialState} from "../../../state/State";
 
 interface CellPropType {
     x: number,
